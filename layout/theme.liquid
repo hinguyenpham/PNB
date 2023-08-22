@@ -10,11 +10,14 @@
     {{ content_for_header }}
     <script src="{{ 'app.js' | asset_url }}" defer="defer"></script>
     {{ 'app.css' | asset_url | stylesheet_tag }}
+    <style>
+      [x-cloak] { display: none !important; }
+    </style>
   </head>
-  <body class="bg-gray-600">
+  <body>
+    {% section 'header' %}
     <main role="main">
       {{ content_for_layout }}
-      <button x-data @click="alert('Hello')">ABC</button>
     </main>
   </body>
 </html>
